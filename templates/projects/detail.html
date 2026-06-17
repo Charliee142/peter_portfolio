@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }}{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb cyber-breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'projects:list' %}">Projects</a></li>
+      <li class="breadcrumb-item active">{{ project.title }}</li>
+    </ol>
+  </nav>
+
+  <div class="row gy-5">  
+    <div class="col-lg-8">
+      <div class="glass-card p-4 mb-4" data-aos="fade-up">
+        <span class="cyber-badge mb-2 d-inline-block">{{ project.get_project_type_display }}</span>
+        <h1 class="mb-2">{{ project.title }}</h1>
+        <p class="text-muted lead">{{ project.short_description }}</p>
+        {% if project.images.all %}
+<div class="glass-card p-4 mb-4" data-aos="fade-up">
+
+    <h4 class="text-cyan mb-4">
+        <i class="fas fa-images me-2"></i>
+        Project Screenshots
+    </h4>
+
+    <div class="row g-3">
+
+        {% for image in project.images.all %}
+
+        <div class="col-md-6">
+
+            <img src="{{ image.image.url }}"
+                 class="img-fluid rounded-3"
+                 alt="{{ image.caption }}">
+
+            {% if image.caption %}
+            <p class="small text-muted mt-2">
+                {{ image.caption }}
+            </p>
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endif %}
+        <div class="project-tech mt-3">{% for tech in project.technologies.all %}<span class="tech-badge">{{ tech.name }}</span>{% endfor %}</div>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          {% if project.demo_url %}<a href="{{ project.demo_url }}" target="_blank" class="btn btn-cyber"><i class="fas fa-external-link-alt me-2"></i>Live Demo</a>{% endif %}
+          {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" class="btn btn-cyber-outline"><i class="fab fa-github me-2"></i>Source Code</a>{% endif %}
+        </div>
+      </div>
+
+      {% if project.overview %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-info-circle me-2"></i>Overview</h4><p>{{ project.overview|linebreaks }}</p></div>
+      {% endif %}
+      {% if project.problem_statement %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-exclamation-triangle me-2"></i>Problem Statement</h4><p>{{ project.problem_statement|linebreaks }}</p></div>
+      {% endif %}
+      {% if project.objectives %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-bullseye me-2"></i>Objectives</h4><p>{{ project.objectives|linebreaks }}</p></div>
+      {% endif %}
+      {% if project.architecture %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-sitemap me-2"></i>Architecture</h4><p>{{ project.architecture|linebreaks }}</p></div>
+      {% endif %}
+      {% if project.challenges %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-bolt me-2"></i>Challenges &amp; Solutions</h4><p>{{ project.challenges|linebreaks }}</p>{% if project.solutions %}<hr class="border-cyan-dim"><p>{{ project.solutions|linebreaks }}</p>{% endif %}</div>
+      {% endif %}
+      {% if project.lessons_learned %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-up"><h4 class="text-cyan mb-3"><i class="fas fa-graduation-cap me-2"></i>Lessons Learned</h4><p>{{ project.lessons_learned|linebreaks }}</p></div>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-4">
+      {% if metrics %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-left">
+        <h5 class="text-cyan mb-3">Key Metrics</h5>
+        {% for m in metrics %}
+        <div class="metric-item d-flex justify-content-between py-2 border-bottom border-secondary">
+          <span class="text-muted small">{{ m.label }}</span>
+          <span class="fw-bold text-cyan">{{ m.value }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="glass-card p-4 mb-4" data-aos="fade-left">
+        <h5 class="text-cyan mb-3">Project Info</h5>
+        <div class="info-item mb-2"><span class="text-muted small">Status</span><br><span class="cyber-badge">{{ project.get_status_display }}</span></div>
+        {% if project.start_date %}<div class="info-item mb-2"><span class="text-muted small">Started</span><br><span>{{ project.start_date|date:"M Y" }}</span></div>{% endif %}
+        {% if project.end_date %}<div class="info-item mb-2"><span class="text-muted small">Completed</span><br><span>{{ project.end_date|date:"M Y" }}</span></div>{% endif %}
+      </div>
+      {% if related_projects %}
+      <div class="glass-card p-4" data-aos="fade-left">
+        <h5 class="text-cyan mb-3">Related Projects</h5>
+        {% for rp in related_projects %}
+        <div class="mb-3"><a href="{{ rp.get_absolute_url }}" class="text-white fw-bold small d-block">{{ rp.title }}</a><p class="text-muted small mb-0">{{ rp.short_description|truncatechars:60 }}</p></div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

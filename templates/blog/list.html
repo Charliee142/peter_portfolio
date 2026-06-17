@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <div class="section-header text-center mb-5" data-aos="fade-up">
+    <span class="section-tag">// Knowledge Base</span>
+    <h1 class="section-title">Articles & <span class="text-cyan">Insights</span></h1>
+  </div>
+  <div class="row gy-4">
+    {% for post in page_obj %}
+    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+      <div class="blog-card glass-card h-100 overflow-hidden">
+
+    {% if post.featured_image %}
+    <div class="blog-image-wrapper">
+        <img src="{{ post.featured_image.url }}"
+             alt="{{ post.title }}"
+             class="blog-image"
+             loading="lazy">
+    </div>
+    {% endif %}
+        <div class="p-4">
+          {% if post.category %}<span class="blog-cat-badge">{{ post.category.name }}</span>{% endif %}
+          <h5 class="mt-2">{{ post.title }}</h5>
+          <p class="text-muted small">{{ post.excerpt|truncatechars:130 }}</p>
+          <div class="blog-meta d-flex justify-content-between text-muted small mt-3">
+            <span><i class="fas fa-clock me-1"></i>{{ post.read_time }} min</span>
+            <span><i class="fas fa-eye me-1"></i>{{ post.views_count }}</span>
+          </div>
+          <a href="{{ post.get_absolute_url }}" class="btn btn-cyber btn-sm w-100 mt-3">Read Article</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center py-5"><p class="text-muted">No articles yet. Check back soon!</p></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

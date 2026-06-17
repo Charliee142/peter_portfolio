@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Training Programs{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <div class="section-header text-center mb-5" data-aos="fade-up">
+    <span class="section-tag">// Learn &amp; Grow</span>
+    <h1 class="section-title">Training <span class="text-cyan">Programs</span></h1>
+  </div>
+  <div class="row gy-4">
+    {% for program in programs %}
+    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+      <div class="glass-card h-100 p-4">
+        <div class="mb-3"><i class="{{ program.icon_class }} fa-2x text-cyan"></i></div>
+        <span class="cyber-badge mb-2 d-inline-block">{{ program.get_level_display }}</span>
+        <h5>{{ program.title }}</h5>
+        <p class="text-muted small">{{ program.short_description }}</p>
+        <div class="d-flex gap-3 text-muted small mt-3">
+          <span><i class="fas fa-calendar me-1"></i>{{ program.duration_weeks }}w</span>
+          <span><i class="fas fa-clock me-1"></i>{{ program.hours_per_week }}h/wk</span>
+        </div>
+        {% if program.price %}<div class="text-cyan fw-bold mt-2">₦{{ program.price|floatformat:0 }}</div>{% endif %}
+        <a href="{% url "training:detail" program.slug %}" class="btn btn-cyber btn-sm w-100 mt-3">View Program</a>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center py-5"><p class="text-muted">Training programs coming soon.</p></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

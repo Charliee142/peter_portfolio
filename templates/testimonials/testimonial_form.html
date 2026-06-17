@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Testimonial{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 mt-5">
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <!-- Hero Section -->
+        <div class="section-header text-center mb-5" data-aos="fade-up">
+
+            <span class="section-tag">
+                // Testimonials
+            </span>
+
+            <h1 class="section-title">
+                Share Your
+                <span class="text-cyan">
+                    Experience
+                </span>
+            </h1>
+
+            <p class="section-subtitle text-muted">
+                Your feedback helps future clients and students
+                understand the value of working with me.
+            </p>
+
+        </div>
+
+        <!-- Form Card -->
+        <div class="glass-card p-5" data-aos="zoom-in">
+            {% if messages %}
+                {% for message in messages %}
+
+                    <div class="alert alert-danger">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+            <form method="post"
+                  enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="row gy-3">
+
+                    <div class="col-md-6">
+                        {{ form.client_name.label_tag }}
+                        {{ form.client_name }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form.client_title.label_tag }}
+                        {{ form.client_title }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form.client_company.label_tag }}
+                        {{ form.client_company }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form.service_type.label_tag }}
+                        {{ form.service_type }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form.rating.label_tag }}
+                        {{ form.rating }}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{ form.client_image.label_tag }}
+                        {{ form.client_image }}
+                    </div>
+
+                    <div class="col-12">
+                        {{ form.content.label_tag }}
+                        {{ form.content }}
+                    </div>
+
+                </div>
+                <div class="cf-turnstile mt-3" data-sitekey="{{ TURNSTILE_SITE_KEY }}">
+                </div>
+                <button
+                    type="submit"
+                    class="btn btn-cyber btn-lg w-100 mt-4">
+
+                    <i class="fas fa-star me-2"></i>
+
+                    Submit Testimonial
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- Trust Section -->
+        <div class="row gy-4 mt-4">
+
+            <div class="col-md-4" data-aos="fade-up">
+
+                <div class="glass-card p-4 text-center">
+
+                    <i class="fas fa-user-shield fa-2x text-cyan mb-3"></i>
+
+                    <h6>Verified Reviews</h6>
+
+                    <p class="text-muted small mb-0">
+                        Every testimonial is reviewed before publication.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="glass-card p-4 text-center">
+
+                    <i class="fas fa-graduation-cap fa-2x text-cyan mb-3"></i>
+
+                    <h6>Student Feedback</h6>
+
+                    <p class="text-muted small mb-0">
+                        Share your learning experience and success story.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="glass-card p-4 text-center">
+
+                    <i class="fas fa-briefcase fa-2x text-cyan mb-3"></i>
+
+                    <h6>Client Reviews</h6>
+
+                    <p class="text-muted small mb-0">
+                        Help others understand the value of our collaboration.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+{% endblock %}

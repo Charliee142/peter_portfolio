@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="glass-card p-5" data-aos="fade-up">
+        {% if post.category %}<span class="blog-cat-badge mb-3 d-inline-block">{{ post.category.name }}</span>{% endif %}
+        <h1 class="mb-3">{{ post.title }}</h1>
+        <div class="blog-meta d-flex gap-3 text-muted small mb-4">
+  <span><i class="fas fa-user me-1"></i>{{ post.author.get_full_name|default:post.author.username }}</span>
+  <span><i class="fas fa-calendar me-1"></i>{{ post.published_at|date:"d M Y" }}</span>
+  <span><i class="fas fa-clock me-1"></i>{{ post.read_time }} min read</span>
+  <span><i class="fas fa-eye me-1"></i>{{ post.views_count }} views</span>
+</div>
+
+{% if post.featured_image %}
+<div class="blog-featured-image mb-5">
+
+    <img src="{{ post.featured_image.url }}"
+         alt="{{ post.title }}"
+         class="img-fluid rounded-4 featured-blog-image"
+         loading="lazy">
+
+</div>
+{% endif %}
+
+<div class="blog-content">
+  {{ post.content|linebreaks }}
+</div>
+
+      {% if post.images.all %}
+<div class="glass-card p-4 mt-5">
+
+    <h4 class="text-cyan mb-4">
+        <i class="fas fa-images me-2"></i>
+        Article Gallery
+    </h4>
+
+    <div class="row g-3">
+
+        {% for image in post.images.all %}
+        <div class="col-md-6">
+
+            <img src="{{ image.image.url }}"
+                 alt="{{ image.caption }}"
+                 class="img-fluid rounded-3 article-gallery-image"
+                 loading="lazy">
+
+            {% if image.caption %}
+            <p class="small text-muted mt-2">
+                {{ image.caption }}
+            </p>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endif %}
+      </div>
+      {% if related_posts %}
+      <div class="mt-5">
+        <h4 class="text-cyan mb-4">Related Articles</h4>
+        <div class="row gy-3">
+          {% for rp in related_posts %}
+          <div class="col-md-4">
+            <div class="glass-card p-3 h-100">
+              <h6>{{ rp.title }}</h6>
+              <a href="{{ rp.get_absolute_url }}" class="service-link small">Read <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

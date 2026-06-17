@@ -1,0 +1,45 @@
+<div class="modal fade"
+     id="successModal">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content glass-card">
+
+            <div class="modal-body text-center p-5">
+
+                <i class="fas fa-check-circle
+                   fa-4x text-cyan mb-4"></i>
+
+                <h3>Thank You!</h3>
+
+                <p>
+                    Your testimonial has been received.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+document.body.addEventListener(
+    'htmx:afterRequest',
+    function(evt){
+
+        if(evt.detail.successful){
+
+            const modal =
+                new bootstrap.Modal(
+                    document.getElementById(
+                        'successModal'
+                    )
+                );
+
+            modal.show();
+
+        }
+
+    }
+);

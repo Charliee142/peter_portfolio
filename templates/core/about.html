@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+{% block title %}About Peter Charles | Django Developer & Cybersecurity Engineer{% endblock %}
+{% block meta_description %}Learn about Peter Charles — Cybersecurity Engineer, Python/Django Developer, OSINT Researcher, and Ethical Hacking Instructor based in Abuja, Nigeria.{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+
+  <!-- ── Hero ── -->
+  <div class="row gy-4 align-items-center mb-5" data-aos="fade-up">
+    <div class="col-lg-8">
+      <span class="section-tag">// About Me</span>
+      <h1 class="section-title">Peter <span class="text-cyan">Charles</span></h1>
+      <p class="lead text-muted mb-3">Cybersecurity Engineer &bull; Python &amp; Django Developer &bull; OSINT Researcher &bull; Ethical Hacking Instructor</p>
+      <p>I build secure web applications using Python and Django, conduct cybersecurity research, perform OSINT investigations, develop security-focused solutions, and train aspiring technology professionals in web development and cybersecurity.</p>
+      <p class="text-muted">My focus is creating scalable, secure, and user-friendly systems while helping businesses and students leverage technology effectively — from Abuja, Nigeria.</p>
+      <div class="d-flex gap-3 mt-4 flex-wrap">
+        <a href="{% url 'contact:contact' %}" class="btn-cyber"><i class="fas fa-envelope" aria-hidden="true"></i> Contact Me</a>
+        <a href="{% url 'bookings:booking' %}" class="btn-cyber-outline"><i class="fas fa-calendar" aria-hidden="true"></i> Book a Call</a>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="glass-card p-4" aria-label="Key statistics">
+        <div class="row gy-3 text-center">
+          <div class="col-6">
+            <div class="stat-num text-cyan fs-2 fw-bold">5+</div>
+            <div class="stat-label text-muted small">Years Experience</div>
+          </div>
+          <div class="col-6">
+            <div class="stat-num text-cyan fs-2 fw-bold">30+</div>
+            <div class="stat-label text-muted small">Projects Built</div>
+          </div>
+          <div class="col-6">
+            <div class="stat-num text-cyan fs-2 fw-bold">30+</div>
+            <div class="stat-label text-muted small">Students Trained</div>
+          </div>
+          <div class="col-6">
+            <div class="stat-num text-cyan fs-2 fw-bold">4+</div>
+            <div class="stat-label text-muted small">Certifications</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Expertise Areas ── -->
+  <section class="mb-5" aria-labelledby="expertise-heading">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-tag">// Core Expertise</span>
+      <h2 class="section-title" id="expertise-heading">Areas of <span class="text-cyan">Expertise</span></h2>
+    </div>
+    <div class="row gy-3">
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-shield-alt fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Cybersecurity</h3>
+          <p class="text-muted small mb-0">Penetration testing, vulnerability assessment, security audits, and hardening web applications against common attack vectors.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-user-secret fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Ethical Hacking</h3>
+          <p class="text-muted small mb-0">Authorised testing of systems to identify and report security weaknesses before malicious actors can exploit them.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-search fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">OSINT Research</h3>
+          <p class="text-muted small mb-0">Open-source intelligence gathering, digital footprint analysis, and investigative research using public data sources.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fab fa-python fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Python Development</h3>
+          <p class="text-muted small mb-0">Building automation tools, security scripts, data pipelines, and backend systems with clean, maintainable Python.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-server fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Django Development</h3>
+          <p class="text-muted small mb-0">Full-stack secure web applications using Django, DRF, PostgreSQL, Docker, and modern deployment pipelines.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-lock fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Web App Security</h3>
+          <p class="text-muted small mb-0">Implementing secure coding practices, OWASP Top 10 mitigations, and security-first architecture in every project.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fab fa-linux fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Linux &amp; Systems</h3>
+          <p class="text-muted small mb-0">Deep experience with Linux server administration, bash scripting, system hardening, and network configuration.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="glass-card p-4 h-100 text-center">
+          <div class="mb-3"><i class="fas fa-graduation-cap fa-2x text-cyan" aria-hidden="true"></i></div>
+          <h3 class="h6 fw-bold mb-2">Technical Training</h3>
+          <p class="text-muted small mb-0">Designing and delivering cybersecurity and web development curricula for individuals, bootcamps, and corporate teams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  {% if skills_by_category %}
+  <section class="mb-5" aria-labelledby="skills-heading">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-tag">// Tech Stack</span>
+      <h2 class="section-title" id="skills-heading">Skills & <span class="text-cyan">Proficiency</span></h2>
+    </div>
+    <div class="row gy-4">
+      {% for cat, cat_skills in skills_by_category.items %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="glass-card p-4 h-100">
+          <h3 class="h6 fw-bold text-cyan mb-3 font-mono text-uppercase" style="letter-spacing:0.1em;">{{ cat }}</h3>
+          {% for skill in cat_skills %}
+          <div class="mb-3">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="skill-name small">{{ skill.name }}</span>
+              <span class="skill-pct" aria-label="{{ skill.proficiency }} percent">{{ skill.proficiency }}%</span>
+            </div>
+            <div class="skill-bar" role="progressbar" aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100">
+              <div class="skill-fill" data-width="{{ skill.proficiency }}"></div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── Experience Timeline ── -->
+  {% if experiences %}
+  <section class="mb-5" aria-labelledby="experience-heading">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-tag">// Career</span>
+      <h2 class="section-title" id="experience-heading">Work <span class="text-cyan">Experience</span></h2>
+    </div>
+    <div class="timeline" role="list">
+      {% for exp in experiences %}
+      <div class="timeline-item glass-card p-4 mb-4" data-aos="fade-up" role="listitem">
+        <div class="d-flex justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h3 class="h6 fw-bold mb-1">{{ exp.title }}</h3>
+            <div class="text-cyan font-mono small">{{ exp.company }}</div>
+            {% if exp.location %}
+            <div class="text-muted small"><i class="fas fa-map-marker-alt me-1" aria-hidden="true"></i>{{ exp.location }}</div>
+            {% endif %}
+          </div>
+          <div class="text-end">
+            <span class="cyber-badge">
+              <time datetime="{{ exp.start_date|date:'Y-m' }}">{{ exp.start_date|date:"M Y" }}</time>
+              &mdash;
+              {% if exp.is_current %}<span>Present</span>{% else %}<time datetime="{{ exp.end_date|date:'Y-m' }}">{{ exp.end_date|date:"M Y" }}</time>{% endif %}
+            </span>
+            <div class="text-muted small mt-1">{{ exp.duration }}</div>
+          </div>
+        </div>
+        <p class="text-muted small mb-0">{{ exp.description }}</p>
+        {% if exp.technologies_list %}
+        <div class="mt-3" aria-label="Technologies used">
+          {% for t in exp.technologies_list %}
+          <span class="tech-badge">{{ t }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── Education & Certifications ── -->
+  <section aria-labelledby="education-heading">
+    <div class="text-center mb-4" data-aos="fade-up">
+      <span class="section-tag">// Credentials</span>
+      <h2 class="section-title" id="education-heading">Education &amp; <span class="text-cyan">Certifications</span></h2>
+    </div>
+    <div class="row gy-4">
+      {% for edu in educations %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="glass-card p-4 h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div><i class="fas fa-university fa-lg text-cyan mt-1" aria-hidden="true"></i></div>
+            <div>
+              <h3 class="h6 fw-bold mb-1">{{ edu.degree }}</h3>
+              <div class="text-cyan small font-mono">{{ edu.institution }}</div>
+              <div class="text-muted small">{{ edu.field_of_study }}</div>
+              <div class="text-muted small">
+                <time datetime="{{ edu.start_year }}">{{ edu.start_year }}</time>
+                &ndash;
+                {% if edu.is_current %}Present{% else %}<time datetime="{{ edu.end_year }}">{{ edu.end_year }}</time>{% endif %}
+              </div>
+              {% if edu.description %}<p class="text-muted small mt-2 mb-0">{{ edu.description }}</p>{% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% for cert in certifications %}
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="glass-card p-4 h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div><i class="fas fa-certificate fa-lg text-cyan mt-1" aria-hidden="true"></i></div>
+            <div>
+              <h3 class="h6 fw-bold mb-1">{{ cert.name }}</h3>
+              <div class="text-cyan small font-mono">{{ cert.issuing_org }}</div>
+              <div class="text-muted small">Issued <time datetime="{{ cert.issue_date|date:'Y-m-d' }}">{{ cert.issue_date|date:"M Y" }}</time></div>
+              {% if cert.credential_url %}
+              <a href="{{ cert.credential_url }}" target="_blank" rel="noopener noreferrer"
+                 class="service-link small mt-1 d-inline-flex" aria-label="Verify {{ cert.name }} certificate">
+                Verify <i class="fas fa-external-link-alt ms-1" aria-hidden="true"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}

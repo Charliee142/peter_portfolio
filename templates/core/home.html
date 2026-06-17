@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Peter Charles | Django Developer & Cybersecurity Engineer{% endblock %}
+{% block meta_description %}Peter Charles — Cybersecurity Engineer, Python & Django Developer, OSINT Researcher and Ethical Hacking Instructor. Building secure digital solutions in Abuja, Nigeria.{% endblock %}
+
+{% block threejs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero-section mt-3" id="hero" aria-label="Hero section">
+  <div id="threejs-hero" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-7 py-5" data-aos="fade-right">
+
+        <div class="hero-badges mb-3">
+           <span class="hero-badge"><i class="fab fa-python" aria-hidden="true"></i> Django</span>
+           <span class="hero-badge"><i class="fab fa-python" aria-hidden="true"></i>  Software Developer</span>
+          <span class="hero-badge"><i class="fas fa-shield-alt" aria-hidden="true"></i> Cybersecurity</span>
+          <span class="hero-badge"><i class="fas fa-search" aria-hidden="true"></i> OSINT</span>
+        </div>
+
+        <h1 class="hero-title">
+          Building <span class="text-cyan glow-text">Secure</span><br>
+          Digital Solutions
+        </h1>
+        <p class="hero-subtitle mt-2 text-white">
+          Django Developer &amp; Cybersecurity Engineer
+        </p>
+        <p class="hero-description mt-3 mb-4 text-white">
+          I build secure web applications, conduct cybersecurity research, perform OSINT investigations,
+          and train the next generation of security professionals — all from Abuja, Nigeria.
+        </p>
+
+        <div class="hero-stats d-flex gap-3 mb-4 flex-wrap" role="list" aria-label="Key statistics">
+          <div class="stat-pill" role="listitem">
+            <span class="stat-num" data-target="{{ stats.projects }}" aria-label="{{ stats.projects }} projects completed">0</span>
+            <span class="stat-label" aria-hidden="true">Projects</span>
+          </div>
+          <div class="stat-pill" role="listitem">
+            <span class="stat-num" data-target="{{ stats.clients }}" aria-label="{{ stats.clients }} clients served">0</span>
+            <span class="stat-label" aria-hidden="true">Clients</span>
+          </div>
+          <div class="stat-pill" role="listitem">
+            <span class="stat-num" data-target="{{ stats.experience }}" aria-label="{{ stats.experience }} years experience">0</span>
+            <span class="stat-label" aria-hidden="true">Yrs Exp</span>
+          </div>
+          <div class="stat-pill" role="listitem">
+            <span class="stat-num" data-target="{{ stats.students }}" aria-label="{{ stats.students }} students trained">0</span>
+            <span class="stat-label" aria-hidden="true">Students</span>
+          </div>
+        </div>
+<div class="d-flex gap-3 flex-wrap">
+          <a href="{{ settings_obj.resume_file.url }}" class="btn-cyber">
+            <i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV
+          </a>
+          <a href="{% url 'bookings:booking' %}" class="btn-cyber-outline">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Consultation
+          </a>
+        </div>
+
+       
+      </div>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-center" data-aos="fade-left" aria-hidden="true">
+        <div id="skill-universe" style="width:360px;height:360px;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+<!-- ═══════════════════════ ABOUT ME ═══════════════════════ --> 
+<section class="py-5" aria-labelledby="about-heading"> 
+  <div class="container"> 
+    <div class="row align-items-center g-5"> 
+      <!-- Profile Image --> 
+      <div class="col-lg-5 text-center" data-aos="fade-right"> 
+        <div class="profile-image-wrapper position-relative d-inline-block"> 
+          <img src="{{ settings_obj.profile_image.url }}" alt="Peter Charles" class="img-fluid rounded-4 shadow-lg profile-image"> 
+          <div class="profile-glow">
+          </div> 
+        </div> 
+      </div> 
+          <!-- About Content --> 
+          <div class="col-lg-7" data-aos="fade-left"> 
+            <span class="section-tag">// About Me</span> 
+            <h2 class="section-title mb-4" id="about-heading"> Building <span class="text-cyan">Secure Solutions</span> & Teaching Future Innovators </h2>
+             <p class="text-muted lead mb-4"> Technology is evolving faster than ever. AI can now generate code in seconds, but the real value has never been in typing code quickly — it's in solving problems, designing secure systems, and turning ideas into reality. </p> 
+             <p class="text-muted mb-4"> I'm <strong class="text-cyan">{{ settings_obj.site_name }}</strong> — {{ settings_obj.about_short }} </p> 
+             <p class="text-muted mb-4"> {{ settings_obj.about_full }}</p> 
+
+             <div class="mt-4">
+    <h5 class="text-cyan mb-3">Connect With Me</h5>
+    <div class="d-flex flex-wrap gap-3">
+        <a href="{{ settings_obj.github_url }}"
+           target="_blank"
+           class="btn-cyber-outline">
+            <i class="fab fa-github"></i>
+            GitHub
+        </a>
+
+        <a href="{{ settings_obj.linkedin_url }}"
+           target="_blank"
+           class="btn-cyber-outline">
+            <i class="fab fa-linkedin"></i>
+            LinkedIn
+        </a>
+
+        <a href="{{ settings_obj.twitter_url }}"
+           target="_blank"
+           class="btn-cyber-outline">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+        </a>
+
+    </div>
+</div> 
+</section> 
+                            
+<!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+{% if featured_services %}
+<section class="py-5" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">// What I Do</span>
+      <h2 class="section-title" id="services-heading">Expert <span class="text-cyan">Services</span></h2>
+      <p class="section-subtitle">Cybersecurity, development, and training solutions</p>
+    </div>
+    <div class="row gy-4">
+      {% for service in featured_services %}
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+        <article class="service-card glass-card h-100">
+          <div class="service-icon mb-3" aria-hidden="true">
+            <i class="{{ service.icon_class }} fa-2x text-cyan"></i>
+          </div>
+          <h3 class="h6 fw-bold mb-2">{{ service.title }}</h3>
+          <p class="text-muted small mb-3">{{ service.short_description }}</p>
+          <a href="{% url 'services:detail' service.slug %}" class="service-link" aria-label="Learn more about {{ service.title }}">
+            Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'services:list' %}" class="btn-cyber-outline">View All Services</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════ PROJECTS ═══════════════════════ -->
+{% if featured_projects %}
+<section class="py-5 bg-dark-alt" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">// Portfolio</span>
+      <h2 class="section-title" id="projects-heading">Featured <span class="text-cyan">Projects</span></h2>
+      <p class="section-subtitle">Secure applications, research tools & cybersecurity projects</p>
+    </div>
+    <div class="row gy-4">
+      {% for project in featured_projects %}
+      <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+        <article class="project-card glass-card h-100 tilt-card">
+          <div class="project-type-badge bg-dark text-white" aria-hidden="true">{{ project.get_project_type_display }}</div>
+          {% if project.featured_image %}
+            <div class="project-image-wrapper">
+                <img src="{{ project.featured_image.url }}"
+                    alt="{{ project.title }}" loading="lazy"
+                    class="project-image">
+                    <div class="project-overlay"></div>
+
+    <div class="project-type-badge">
+        {{ project.get_project_type_display }}
+    </div>
+            </div>
+            {% else %}
+            <div class="project-img-placeholder">
+                <i class="fas fa-folder-open fa-3x text-cyan opacity-50"></i>
+            </div>
+          {% endif %}
+          <div class="p-4">
+            <h3 class="h6 fw-bold mb-2">{{ project.title }}</h3>
+            <p class="text-muted small mb-3">{{ project.short_description|truncatechars:110 }}</p>
+            <div class="mb-3" aria-label="Technologies used">
+              {% for tech in project.technologies.all|slice:":4" %}
+              <span class="tech-badge">{{ tech.name }}</span>
+              {% endfor %}
+            </div>
+            <a href="{{ project.get_absolute_url }}" class="btn-cyber btn-sm w-100">
+              <i class="fas fa-eye" aria-hidden="true"></i> Case Study
+            </a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'projects:list' %}" class="btn-cyber">All Projects <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════ SKILLS ═══════════════════════ -->
+{% if skills %}
+<section class="py-5" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">// Tech Stack</span>
+      <h2 class="section-title" id="skills-heading">Skills & <span class="text-cyan">Expertise</span></h2>
+    </div>
+    <div class="row gy-3">
+      {% for skill in skills %}
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <div class="skill-item glass-card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="skill-name">{{ skill.name }}</span>
+            <span class="skill-pct" aria-label="{{ skill.proficiency }}% proficiency">{{ skill.proficiency }}%</span>
+          </div>
+          <div class="skill-bar" role="progressbar" aria-valuenow="{{ skill.proficiency }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ skill.name }} skill level">
+            <div class="skill-fill" data-width="{{ skill.proficiency }}"></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+{% if testimonials %}
+<section class="py-5 bg-dark-alt" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">// Social Proof</span>
+      <h2 class="section-title" id="testimonials-heading">Client <span class="text-cyan">Testimonials</span></h2>
+    </div>
+    <div class="row gy-4">
+      {% for t in testimonials %}
+      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+        <blockquote class="testimonial-card glass-card h-100 p-4" style="margin:0;">
+          <p class="testimonial-text">"{{ t.content|truncatechars:200 }}"</p>
+          <footer class="mt-3 d-flex align-items-center gap-3">
+            <div class="avatar-placeholder" aria-hidden="true">{{ t.client_name|first }}</div>
+            <div>
+              <cite class="fw-bold small d-block" style="font-style:normal;">{{ t.client_name }}</cite>
+              <span class="text-muted small">{{ t.client_title }}{% if t.client_company %}, {{ t.client_company }}{% endif %}</span>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════ BLOG ═══════════════════════ -->
+{% if featured_posts %}
+<section class="py-5" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">// Knowledge Base</span>
+      <h2 class="section-title" id="blog-heading">Latest <span class="text-cyan">Articles</span></h2>
+    </div>
+    <div class="row gy-4">
+      {% for post in featured_posts %}
+      <div class="col-md-4" data-aos="fade-up">
+        <article class="blog-card glass-card h-100">
+          <div class="p-4">
+            {% if post.category %}<span class="blog-cat-badge">{{ post.category.name }}</span>{% endif %}
+            <h3 class="h6 fw-bold mt-2 mb-2">{{ post.title }}</h3>
+            <p class="text-muted small">{{ post.excerpt|truncatechars:115 }}</p>
+            <div class="d-flex justify-content-between text-muted small mt-3">
+              <span><i class="fas fa-clock me-1" aria-hidden="true"></i><span aria-label="{{ post.read_time }} minute read">{{ post.read_time }} min</span></span>
+              <span><i class="fas fa-eye me-1" aria-hidden="true"></i>{{ post.views_count }}</span>
+            </div>
+            <a href="{{ post.get_absolute_url }}" class="stretched-link" aria-label="Read {{ post.title }}"></a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'blog:list' %}" class="btn-cyber-outline">Read All Articles</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ═══════════════════════ CTA ═══════════════════════ -->
+<section class="cta-section py-5" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-inner glass-card p-5 text-center mx-auto" style="max-width:700px;" data-aos="zoom-in">
+      <h2 class="mb-3" id="cta-heading">Need a <span class="text-cyan">Security-First</span> Solution?</h2>
+      <p class="text-muted mb-4">Whether it's a secure web application, a penetration test, OSINT research, or cybersecurity training — let's talk.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="{% url 'contact:contact' %}" class="btn-cyber btn-lg">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i> Get in Touch
+        </a>
+        <a href="{% url 'bookings:booking' %}" class="btn-cyber-outline btn-lg">
+          <i class="fas fa-calendar" aria-hidden="true"></i> Book Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/particles.js' %}" defer></script>
+<script src="{% static 'js/hero3d.js' %}" defer></script>
+<script src="{% static 'js/counters.js' %}" defer></script>
+{% endblock %}

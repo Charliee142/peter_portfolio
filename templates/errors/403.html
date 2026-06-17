@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}403 — Forbidden{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5 text-center">
+  <div class="glass-card p-5 d-inline-block" data-aos="zoom-in">
+    <div class="text-cyan" style="font-size:5rem;font-weight:700;font-family:var(--mono);">403</div>
+    <h3 class="mb-3">Access Forbidden</h3>
+    <p class="text-muted mb-4">CSRF verification failed. Request aborted.</p>
+    <a href="/" class="btn-cyber"><i class="fas fa-home me-2" aria-hidden="true"></i>Back to Home</a>
+  </div>
+</div>
+{% endblock %}

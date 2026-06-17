@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-tag">// Connect</span>
+        <h1 class="section-title">Get In <span class="text-cyan">Touch</span></h1>
+        <p class="section-subtitle text-muted">Have a project in mind? Let's talk.</p>
+      </div>
+      <div class="glass-card p-5" data-aos="zoom-in">
+        <form method="post" hx-post="{% url 'contact:contact' %}" hx-target="#contact-response" hx-swap="innerHTML">
+          {% csrf_token %}
+          <div id="contact-response"></div>
+          <div class="row gy-3">
+            <div class="col-md-6">{{ form.full_name.label_tag }}{{ form.full_name }}</div>
+            <div class="col-md-6">{{ form.email.label_tag }}{{ form.email }}</div>
+            <div class="col-md-6">{{ form.phone.label_tag }}{{ form.phone }}</div>
+            <div class="col-md-6">{{ form.company.label_tag }}{{ form.company }}</div>
+            <div class="col-md-6">{{ form.inquiry_type.label_tag }}{{ form.inquiry_type }}</div>
+            <div class="col-md-6">{{ form.subject.label_tag }}{{ form.subject }}</div>
+            <div class="col-12">{{ form.message.label_tag }}{{ form.message }}</div>
+          </div>
+          <button type="submit" class="btn btn-cyber btn-lg w-100 mt-4">
+            <i class="fas fa-paper-plane me-2"></i>Send Message
+          </button>
+        </form>
+      </div>
+      <div class="row gy-4 mt-4">
+        <div class="col-md-4" data-aos="fade-up"><div class="glass-card p-4 text-center"><i class="fas fa-envelope fa-2x text-cyan mb-3"></i><h6>Email</h6><p class="text-muted small"> charlespeter142@gmail.com</p></div></div>
+        <div class="col-md-4" data-aos="fade-up"><div class="glass-card p-4 text-center"><i class="fas fa-map-marker-alt fa-2x text-cyan mb-3"></i><h6>Location</h6><p class="text-muted small">Abuja, FCT, Nigeria</p></div></div>
+        <div class="col-md-4" data-aos="fade-up"><div class="glass-card p-4 text-center"><i class="fas fa-calendar fa-2x text-cyan mb-3"></i><h6>Availability</h6><p class="text-muted small">Mon–Fri, 9am–6pm WAT</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary SEO -->
+  <title>{% block title %}Peter Charles | Django Developer & Cybersecurity Engineer{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Peter Charles — Cybersecurity Engineer, Python & Django Developer, OSINT Researcher and Ethical Hacking Instructor based in Abuja, Nigeria.{% endblock %}">
+  <meta name="author" content="Peter Charles">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:title" content="{% block og_title %}Peter Charles | Cybersecurity Engineer & Django Developer{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Building secure digital solutions — Python, Django, Cybersecurity, OSINT, Abuja Nigeria.{% endblock %}">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:site_name" content="Peter Charles Portfolio">
+  <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}/static/images/og-cover.png{% endblock %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@petercharlesdev">
+  <meta name="twitter:title" content="{% block tw_title %}Peter Charles | Cybersecurity Engineer{% endblock %}">
+  <meta name="twitter:description" content="{% block tw_description %}Cybersecurity Engineer, Django Developer & OSINT Researcher — Abuja, Nigeria.{% endblock %}">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Peter Charles",
+    "jobTitle": "Cybersecurity Engineer & Django Developer",
+    "url": "https://petercharles.dev",
+    "sameAs": [
+      "https://linkedin.com/in/peter-charles142",
+      "https://github.com/Charliee142"
+    ],
+    "address": {"@type": "PostalAddress", "addressLocality": "Abuja", "addressCountry": "NG"},
+    "knowsAbout": ["Cybersecurity", "Python", "Django", "OSINT", "Ethical Hacking", "Web Development"]
+  }
+  </script>
+
+  <!-- Preconnect critical origins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  {% load static %}
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  {% block extra_css %}{% endblock %}
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" onerror="this.remove()">
+</head>
+<body>
+  <!-- Cyber Grid Background -->
+  <div class="cyber-grid-bg" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       PREMIUM FLOATING NAVBAR
+  ═══════════════════════════════════════════ -->
+  <header role="banner">
+    <nav
+      id="main-nav"
+      class="cyber-nav"
+      role="navigation"
+      aria-label="Main navigation"
+    >
+      <div class="nav-inner">
+
+        <!-- Brand -->
+        <a class="nav-brand" href="{% url 'core:home' %}" aria-label="Peter Charles — Home">
+          <span class="brand-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="26" height="26" rx="6" stroke="#00D9FF" stroke-width="1.5"/>
+              <path d="M8 14 L14 8 L20 14 L14 20 Z" stroke="#00D9FF" stroke-width="1.5" fill="none"/>
+              <circle cx="14" cy="14" r="2.5" fill="#00D9FF"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            Peter<span class="text-cyan">Charles</span>
+          </span>
+          <span class="brand-dot" aria-hidden="true"></span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="nav-links" role="list">
+          <li><a href="{% url 'core:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="{% if request.resolver_match.url_name == 'home' %}page{% endif %}">Home</a></li>
+          <li><a href="{% url 'core:about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" aria-current="{% if request.resolver_match.url_name == 'about' %}page{% endif %}">About</a></li>
+          <li><a href="{% url 'projects:list' %}" class="nav-link {% if request.resolver_match.app_name == 'projects' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'projects' %}page{% endif %}">Projects</a></li>
+          <li><a href="{% url 'services:list' %}" class="nav-link {% if request.resolver_match.app_name == 'services' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'services' %}page{% endif %}">Services</a></li>
+          <li><a href="{% url 'training:list' %}" class="nav-link {% if request.resolver_match.app_name == 'training' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'training' %}page{% endif %}">Training</a></li>
+           <li><a href="{% url 'testimonials:list' %}" class="nav-link {% if request.resolver_match.app_name == 'testimonials' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'testimonials' %}page{% endif %}">Testimonials</a></li>
+          <li><a href="{% url 'blog:list' %}" class="nav-link {% if request.resolver_match.app_name == 'blog' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'blog' %}page{% endif %}">Blog</a></li>
+          <li><a href="{% url 'contact:contact' %}" class="nav-link {% if request.resolver_match.app_name == 'contact' %}active{% endif %}" aria-current="{% if request.resolver_match.app_name == 'contact' %}page{% endif %}">Contact</a></li>
+        </ul>
+
+        <!-- CTA + Mobile toggle -->
+        <div class="nav-actions">
+          <a href="{% url 'bookings:booking' %}" class="btn-hire" aria-label="Book a consultation with Peter Charles">
+            <i class="fas fa-terminal" aria-hidden="true"></i>
+            <span>Hire Me</span>
+          </a>
+
+          <button
+            id="nav-toggle"
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Open navigation menu"
+          >
+            <span class="toggle-bar" aria-hidden="true"></span>
+            <span class="toggle-bar" aria-hidden="true"></span>
+            <span class="toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </div><!-- /.nav-inner -->
+    </nav>
+
+    <!-- Mobile slide-out menu -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+      hidden
+    >
+      <div class="mobile-menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+      <div class="mobile-menu-panel" role="document">
+        <div class="mobile-menu-header">
+          <span class="nav-brand" aria-hidden="true">Peter<span class="text-cyan">Charles</span></span>
+          <button
+            id="menu-close"
+            class="menu-close"
+            type="button"
+            aria-label="Close navigation menu"
+          >
+            <i class="fas fa-times" aria-hidden="true"></i>
+          </button>
+        </div>
+        <nav aria-label="Mobile navigation links">
+          <ul class="mobile-nav-list" role="list">
+            <li><a href="{% url 'core:home' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+            <li><a href="{% url 'core:about' %}" class="mobile-nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"><i class="fas fa-user-shield" aria-hidden="true"></i> About</a></li>
+            <li><a href="{% url 'projects:list' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'projects' %}active{% endif %}"><i class="fas fa-shield-alt" aria-hidden="true"></i> Projects</a></li>
+            <li><a href="{% url 'services:list' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'services' %}active{% endif %}"><i class="fas fa-code" aria-hidden="true"></i> Services</a></li>
+            <li><a href="{% url 'training:list' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'training' %}active{% endif %}"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Training</a></li>
+            <li><a href="{% url 'testimonials:list' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'testimonials' %}active{% endif %}"><i class="fas fa-comments" aria-hidden="true"></i> Testimonials</a></li>
+            <li><a href="{% url 'blog:list' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'blog' %}active{% endif %}"><i class="fas fa-terminal" aria-hidden="true"></i> Blog</a></li>
+            <li><a href="{% url 'contact:contact' %}" class="mobile-nav-link {% if request.resolver_match.app_name == 'contact' %}active{% endif %}"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
+          </ul>
+        </nav>
+        <div class="mobile-menu-footer">
+          <a href="{% url 'bookings:booking' %}" class="btn-cyber w-100 justify-content-center">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Consultation
+          </a>
+          <div class="mobile-social mt-3 d-flex gap-2 justify-content-center">
+            <a href="https://github.com/Charliee142" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href=" https://linkedin.com/in/peter-charles142" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="" class="social-btn" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Flash messages -->
+  {% if messages %}
+  <div class="messages-container" role="status" aria-live="polite">
+    <div class="container">
+      {% for message in messages %}
+      <div class="alert cyber-alert alert-dismissible fade show" role="alert">
+        <i class="fas fa-info-circle me-2" aria-hidden="true"></i>{{ message }}
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Dismiss"></button>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Main content -->
+  <main id="main-content" role="main" tabindex="-1" {% if request.resolver_match.url_name != "home" %}style="padding-top:80px"{% endif %}>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Footer -->
+  <footer class="cyber-footer" role="contentinfo">
+    <div class="container">
+      <div class="row gy-4 py-5">
+        <div class="col-lg-4">
+          <div class="footer-brand mb-3" aria-label="Peter Charles">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" class="me-2" aria-hidden="true">
+              <rect x="1" y="1" width="26" height="26" rx="6" stroke="#00D9FF" stroke-width="1.5"/>
+              <path d="M8 14 L14 8 L20 14 L14 20 Z" stroke="#00D9FF" stroke-width="1.5" fill="none"/>
+              <circle cx="14" cy="14" r="2.5" fill="#00D9FF"/>
+            </svg>
+            <span>Peter<span class="text-cyan">Charles</span></span>
+          </div>
+          <p class="text-muted small">Cybersecurity Engineer &amp; Django Developer based in Abuja, Nigeria. Building secure, scalable digital solutions.</p>
+          <div class="social-links mt-3 d-flex gap-2" role="list">
+            <a href=" https://linkedin.com/in/peter-charles142" class="social-btn" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://github.com/Charliee142" class="social-btn" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="" class="social-btn" aria-label="Twitter profile" target="_blank" rel="noopener noreferrer" role="listitem"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <h3 class="footer-heading text-cyan mb-3">Navigation</h3>
+          <ul class="list-unstyled footer-links">
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><a href="{% url 'core:about' %}">About</a></li>
+            <li><a href="{% url 'projects:list' %}">Projects</a></li>
+            <li><a href="{% url 'blog:list' %}">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <h3 class="footer-heading text-cyan mb-3">Services</h3>
+          <ul class="list-unstyled footer-links">
+            <li><a href="{% url 'services:list' %}">All Services</a></li>
+            <li><a href="{% url 'training:list' %}">Training</a></li>
+            <li><a href="{% url 'bookings:booking' %}">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h3 class="footer-heading text-cyan mb-3">Get In Touch</h3>
+          <address style="font-style:normal;">
+            <p class="text-muted small"><i class="fas fa-map-marker-alt text-cyan me-2" aria-hidden="true"></i>Abuja, FCT, Nigeria</p>
+            <p class="text-muted small"><i class="fas fa-envelope text-cyan me-2" aria-hidden="true"></i> charlespeter142@gmail.com</p>
+          </address>
+          <a href="{% url 'contact:contact' %}" class="btn btn-cyber mt-2">
+            <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Send Message
+          </a>
+        </div>
+      </div>
+      <hr class="border-cyan-dim" role="separator">
+      <div class="row py-3 align-items-center">
+        <div class="col-md-6 text-muted small">&copy; 2026 Peter Charles. All rights reserved.</div>
+        <div class="col-md-6 text-end text-muted small">
+          Built with <a href="https://www.djangoproject.com/" class="text-cyan text-decoration-none" target="_blank" rel="noopener noreferrer">Django</a>
+          &amp; <a href="https://threejs.org/" class="text-cyan text-decoration-none" target="_blank" rel="noopener noreferrer">Three.js</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Three.js loaded only on home page for performance -->
+  {% block threejs %}{% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
+  {% load static %}
+  <script src="{% static 'js/main.js' %}" defer></script>
+  <script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer>
+  </script>
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>

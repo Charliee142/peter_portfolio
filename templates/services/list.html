@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<div class="container py-5 mt-5">
+  <div class="section-header text-center mb-5" data-aos="fade-up">
+    <span class="section-tag">// What I Offer</span>
+    <h1 class="section-title">Professional <span class="text-cyan">Services</span></h1>
+  </div>
+  <div class="row gy-4">
+    {% for service in services %}
+    <div class="col-md-6 col-lg-4" data-aos="fade-up">
+      <div class="service-card glass-card h-100 p-4">
+        <div class="service-icon mb-3"><i class="{{ service.icon_class }} fa-2x text-cyan"></i></div>
+        <h5>{{ service.title }}</h5>
+        <p class="text-muted">{{ service.short_description }}</p>
+        {% if service.price_from %}<div class="text-cyan fw-bold mb-3">From ₦{{ service.price_from|floatformat:0 }}</div>{% endif %}
+        <a href="{% url "services:detail" service.slug %}" class="btn btn-cyber btn-sm w-100">Learn More</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
