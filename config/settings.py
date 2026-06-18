@@ -33,7 +33,7 @@ LOCAL_APPS = [
     'projects',
     'blog',
     'services',
-    'training',
+    'training',   
     'testimonials',
     'contact',
     'bookings',
@@ -155,8 +155,8 @@ EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='noreply@petercharles.dev')
-CONTACT_EMAIL = config('CONTACT_EMAIL', default='peter@petercharles.dev')
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="charlespeter142@gmail.com")
+CONTACT_EMAIL = config("CONTACT_EMAIL", default="charlespeter142@gmail.com")
 
 # File upload security
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024  # 5 MB
